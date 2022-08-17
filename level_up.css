@@ -167,6 +167,14 @@ a:hover .lvlupbtn {
   }
 
   .hero__img {
-    margin-top: 3rem;
+    display: none;
+  }
+
+  .right-col {
+    width: 100%;
+  }
+
+  .left-col {
+    width: 100%;
   }
 }
