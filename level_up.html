@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="level_up.css" />
+    <script src="main.js" defer></script>
     <title>Level Up!</title>
   </head>
   <body>
 
     <header class="header">
       <nav class="nav container">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li>
-          <li class="nav__item"><a href="#" class="nav__link--btn">Sign Up</a></li>
+        <a href="#" class="logo">
+          <img src="img/logo.svg" alt="crl-logo">
+        </a>
+        <ul class="nav__list" id="nav__list">
+          <div class="nav__list--main-sec">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+          </div>
+          <div class="nav__list--sign-sec">
+            <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li>
+            <li class="nav__item"><a href="#" class="nav__link--btn">Sign Up</a></li>
+          </div>
         </ul>
+        <div class="menu-btn">
+          <div class="menu-btn__burger">
+          </div>
+        </div>
       </nav>
     </header>
 

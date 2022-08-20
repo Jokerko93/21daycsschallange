@@ -15,6 +15,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: 21px;
+  /* overflow: hidden; */
 }
 
 img {
@@ -62,6 +63,13 @@ header {
   padding: 1em 0;
 }
 
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
 .nav__list {
   margin: 0;
   padding: 0;
@@ -70,10 +78,27 @@ header {
   color: #fff;
 
   display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+
+  display: none;
 }
 
-.nav__item {
-  margin-right: 20px;
+.nav__list--main-sec,
+.nav__list--sign-sec {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid red; */
+  /* border: 4px solid yellow; */
+}
+
+.nav__list--main-sec {
+  margin: 0 auto;
+}
+
+.nav__item + .nav__item {
+  margin-left: 20px;
 }
 
 .nav__link,
@@ -100,9 +125,69 @@ header {
   transform: scaleX(1);
 }
 
-.nav__item:nth-last-child(2) {
-  margin-left: auto;
+.logo {
+  margin-right: 2rem;
 }
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  /* border: 3px solid #fff; */
+  display: none;
+}
+
+.menu-btn__burger {
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::after,
+.menu-btn__burger::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__burger::after {
+  transform: translateY(-8px);
+}
+
+.menu-btn__burger::before {
+  transform: translateY(8px);
+}
+
+/* Animation */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+/* .nav__item:nth-last-child(2) {
+  margin-left: auto;
+} */
+
+/* .nav__item:nth-child(-n + 3) {
+} */
 
 .hero {
   background-color: var(--primary-color);
@@ -159,6 +244,10 @@ header {
   padding: 75px 0;
 }
 
+/* __________________________ */
+/* Level Up Button */
+/* __________________________ */
+
 .lvlup {
   margin: 0 auto;
 }
@@ -183,6 +272,8 @@ a:hover .lvlupbtn {
   cursor: pointer;
 }
 
+/* __________________________ */
+
 /* Level Up page */
 
 .right-col {
@@ -205,6 +296,8 @@ a:hover .lvlupbtn {
   font-size: 2.25rem;
 }
 
+/* __________________________ */
+
 @media (max-width: 750px) {
   .container {
     margin: 0 auto;
@@ -213,6 +306,7 @@ a:hover .lvlupbtn {
 
   .hero-content {
     width: 100%;
+    z-index: -1;
   }
 
   .row {
@@ -233,5 +327,41 @@ a:hover .lvlupbtn {
 
   .left-col {
     width: 100%;
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    text-align: left;
+  }
+
+  .nav__list.expanded {
+    transition: all 0.5s ease-in-out;
+    display: block;
+    position: absolute;
+    top: 61px;
+    left: 0;
+    background-color: #136c72;
+    width: 600px;
+    z-index: +1;
+    box-shadow: 0px 8px 15px hsl(184 71% 36% / 0.4);
+  }
+
+  .nav__list.expanded .nav__list--main-sec,
+  .nav__list.expanded .nav__list--sign-sec {
+    display: block;
+  }
+
+  .nav__list.expanded .nav__item {
+    margin: 30px 0;
+  }
+
+  .nav__list.expanded .nav__link--btn {
+    background: none;
+    color: #fff;
+    border-bottom: 3px solid hsl(192, 62%, 61%);
   }
 }
