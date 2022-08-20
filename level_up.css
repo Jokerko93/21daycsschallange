@@ -81,8 +81,6 @@ header {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-
-  display: none;
 }
 
 .nav__list--main-sec,
