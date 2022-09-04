@@ -328,7 +328,11 @@ a:hover .lvlupbtn {
   }
 
   .nav__list {
-    display: none;
+    position: absolute;
+    top: -400px;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 500ms ease-in-out;
   }
 
   .menu-btn {
@@ -337,20 +341,28 @@ a:hover .lvlupbtn {
   }
 
   .nav__list.expanded {
-    transition: all 0.5s ease-in-out;
     display: block;
     position: absolute;
     top: 61px;
     left: 0;
     background-color: #136c72;
     width: 100%;
-    z-index: +1;
+    z-index: 1;
     box-shadow: 0px 8px 15px hsl(184 71% 36% / 0.4);
+    transform: scale(1, 1);
+    /* transition: all 0.5s ease-in-out; */
+  }
+
+  .nav__list--main-sec,
+  .nav__list--sign-sec {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out 400ms;
   }
 
   .nav__list.expanded .nav__list--main-sec,
   .nav__list.expanded .nav__list--sign-sec {
     display: block;
+    opacity: 1;
   }
 
   .nav__list.expanded .nav__item {
